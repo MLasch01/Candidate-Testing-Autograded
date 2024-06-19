@@ -4,11 +4,25 @@ const input = require('readline-sync');
 
 // TODO 1.1a: Define candidateName // 
 let candidateName;
+candidateName = input.question("Enter your name: ");
+console.log("Hello, " + candidateName + "!");
+
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question;
-let correctAnswer;
-let candidateAnswer;
+question = input.question("Who was the first American woman in space? ");
+console.log(question);
 
+let correctAnswer;
+correctAnswer = "Sally Ride";
+
+let candidateAnswer;
+candidateAnswer = "Sally Ride";
+
+if (correctAnswer == candidateAnswer) {
+  console.log("correct");
+} else if (correctAnswer != candidateAnswer) {
+  console.log ("incorrect");
+}
 
 //TODO: Variables for Part 2
 let questions;
