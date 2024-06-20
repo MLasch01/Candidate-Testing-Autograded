@@ -9,14 +9,13 @@ console.log("Hello, " + candidateName + "!");
 
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question;
-question = input.question("Who was the first American woman in space? ");
-console.log(question);
+question = ("Who was the first American woman in space? ");
 
 let correctAnswer;
 correctAnswer = "Sally Ride";
 
 let candidateAnswer;
-candidateAnswer = "Sally Ride";
+candidateAnswer = input.question(question);
 
 if (correctAnswer == candidateAnswer) {
   console.log("correct");
