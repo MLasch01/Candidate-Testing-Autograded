@@ -4,9 +4,10 @@ const input = require('readline-sync');
 
 // TODO 1.1a: Define candidateName // 
 let candidateName;
-//candidateName = askForName();
-candidateName = input.question("Enter your name: ");
-console.log("Hello, " + candidateName + "!");
+candidateName = "";
+// askForName();
+//candidateName = input.question("Enter your name: ");
+//console.log("Hello, " + candidateName + "!");
 
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question;
@@ -16,13 +17,14 @@ let correctAnswer;
 correctAnswer = "Sally Ride";
 
 let candidateAnswer;
-candidateAnswer = input.question(question);
+candidateAnswer = "";
+// candidateAnswer = input.question(question);
 
-if (correctAnswer == candidateAnswer) {
-  console.log("correct");
-} else if (correctAnswer != candidateAnswer) {
-  console.log ("incorrect");
-}
+//if (correctAnswer == candidateAnswer) {
+  //console.log("correct");
+//} else if (correctAnswer != candidateAnswer) {
+  //console.log ("incorrect");
+//}
 
 //TODO: Variables for Part 2
 let questions = [
@@ -50,24 +52,25 @@ let candidateAnswers = ["",
 // let candidateAnswers = input.question(questions);
 // let input = prompt(questions);
 
-for (let i = 0; i < questions.length; i++) {
-  candidateAnswers[i] = input.question(questions[i]); 
+//  for (let i = 0; i < questions.length; i++) {
+//   candidateAnswers[i] = input.question(questions[i]); 
 
-  if (candidateAnswers[i].toUpperCase() == correctAnswers[i].toUpperCase()) {
-    console.log ("Correct - " + correctAnswers[i]); 
-  }
-  else {
-  console.log ("Incorrect - " + correctAnswers[i]);
-  }
-}
+//   if (candidateAnswers[i].toUpperCase() == correctAnswers[i].toUpperCase()) {
+//     console.log ("Correct - " + correctAnswers[i]); 
+//   }
+//   else {
+//   console.log ("Incorrect - " + correctAnswers[i]);
+//   }
+// }
 
 
 
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-  return(input.question("Enter your name: "));
+  candidateName = input.question("Enter your name: ");
 }
+
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
@@ -82,19 +85,21 @@ function askQuestion() {
 function gradeQuiz(candidateAnswers) {
   
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+  let num_correct_answers = 0;
   for (let i = 0; i < candidateAnswers.length; i++){
-  if (correctAnswers[i].toUpperCase() == candidateAnswers[i].toUpperCase()) {
+    if (correctAnswers[i].toUpperCase() == candidateAnswers[i].toUpperCase()) {
+      console.log(`Your answer: ${candidateAnswers[i]} Correct Answer: ${correctAnswers[i]}.`);
+      num_correct_answers++;
+    } else {
     console.log(`Your answer: ${candidateAnswers[i]} Correct Answer: ${correctAnswers[i]}.`);
-    num_correct_answers++;
-  } else {
-    console.log(`Your answer: ${candidateAnswers[i]} Correct Answer: ${correctAnswers[i]}.`);
-  }
+    }
   }
 
-  // let grade = num_correct_answers / cand0424idateAnswers.length * 100;  //TODO 3.2 use this variable to calculate the candidates score.
-  // (Number of Correct Answers) / (Number of Quiz Questions) * 100
-  
-
+  //let grade = num_correct_answers / cand0424idateAnswers.length * 100;  
+  //TODO 3.2 use this variable to calculate the candidates score.
+  //(Number of Correct Answers) / (Number of Quiz Questions) * 100
+  let grade = (num_correct_answers / candidateAnswers.length) * 100;
+  console.log(`Your grade is ${grade}%`);
   return grade;
 }
 
