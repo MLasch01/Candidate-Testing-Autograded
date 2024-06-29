@@ -100,8 +100,17 @@ function gradeQuiz(candidateAnswers) {
   //(Number of Correct Answers) / (Number of Quiz Questions) * 100
   let grade = (num_correct_answers / candidateAnswers.length) * 100;
   console.log(`Your grade is ${grade}%`);
+
+  if (grade >= 80) {
+    console.log("Congratulations, you passed");
+    }
+    else {
+      console.log("Sorry, you failed.  Please try again.");
+    }
+
   return grade;
 }
+
 
 function runProgram() {
   askForName();
